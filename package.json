@@ -1,0 +1,35 @@
+{
+  "name": "psalm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "bin": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "ts": "node -r esm -r esbuild-register",
+    "plop":"plop --plopfile lib/plopfile.js",
+    "buildMain": "./node_modules/.bin/esbuild src/index.ts --bundle --platform=node --outfile=lib/index.js",
+    "buildPlop": "./node_modules/.bin/esbuild src/plopfile.ts --bundle --platform=node --outfile=lib/plopfile.js",
+    "build": "npm run buildMain &&npm run buildPlop",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bung87",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/minimist": "^1.2.1",
+    "esbuild": "^0.8.28",
+    "esbuild-register": "^1.1.1",
+    "esm": "^3.2.25"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "plop": "^2.7.4"
+  }
+}
