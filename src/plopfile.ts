@@ -1,6 +1,7 @@
-import {NodePlopAPI} from 'plop';
+import { NodePlopAPI } from 'plop';
 
 export default function (plop: NodePlopAPI) {
-  // plop generator code
-  console.log(1)
+  const include = { generators: true, helpers: false, partials: false, actionTypes: false }
+  // @ts-ignore
+  plop.load('./plopfiles/component.js', {}, include);
 };

@@ -10,8 +10,8 @@
   "scripts": {
     "ts": "node -r esm -r esbuild-register",
     "plop":"plop --plopfile lib/plopfile.js",
-    "buildMain": "./node_modules/.bin/esbuild src/index.ts --bundle --platform=node --outfile=lib/index.js",
-    "buildPlop": "./node_modules/.bin/esbuild src/plopfile.ts --bundle --platform=node --outfile=lib/plopfile.js",
+    "buildMain": "./node_modules/.bin/esbuild src/index.ts --platform=node --outfile=lib/index.js",
+    "buildPlop": "./node_modules/.bin/esbuild src/plopfile.ts --platform=node --outfile=lib/plopfile.js",
     "build": "npm run buildMain &&npm run buildPlop",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
