@@ -8,5 +8,5 @@ export default function (plop: NodePlopAPI) {
     actionTypes: false,
   };
   // @ts-ignore
-  plop.load("./plopfiles/component.js", {}, include);
+  plop.load(require.resolve("./plopfiles/node"), {}, include);
 }
