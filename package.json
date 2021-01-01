@@ -9,12 +9,14 @@
   ],
   "scripts": {
     "ts": "node -r esm -r esbuild-register",
-    "plop":"plop --plopfile lib/plopfile.js",
+    "plop": "plop --plopfile lib/plopfile.js",
     "buildMain": "./node_modules/.bin/esbuild src/index.ts --platform=node --outfile=lib/index.js",
     "buildPlop": "./node_modules/.bin/esbuild src/plopfile.ts --platform=node --outfile=lib/plopfile.js",
-    "build": "npm run buildMain &&npm run buildPlop",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "yarpm run buildMain &&yarpm run buildPlop",
+    "prepublishOnly": "yarpm run pretty && yarpm run build",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "watch": "tsc -p . --watch",
+    "pretty": "yarpm run prettier --write ."
   },
   "author": "bung87",
   "license": "MIT",
@@ -22,7 +24,10 @@
     "@types/minimist": "^1.2.1",
     "esbuild": "^0.8.28",
     "esbuild-register": "^1.1.1",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "husky": "^4.3.6",
+    "prettier": "^2.2.1",
+    "yarpm": "^0.2.1"
   },
   "publishConfig": {
     "access": "public",
@@ -31,5 +36,10 @@
   "dependencies": {
     "minimist": "^1.2.5",
     "plop": "^2.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarpm run test"
+    }
   }
 }
