@@ -2,8 +2,9 @@
   "name": "psalm",
   "version": "0.0.1",
   "description": "",
-  "main": "lib/index.js",
-  "bin": "lib/index.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "bin": "lib/cjs/index.js",
   "files": [
     "lib/**"
   ],
@@ -11,7 +12,7 @@
     "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
     "plop": "plop --plopfile lib/plopfile.js",
-    "build": "tsc -p .",
+    "build": "tsc -p tsconfig.json && tsc -p esmconfig.json",
     "prepublishOnly": "yarpm run pretty && yarpm run build",
     "test": "echo \"Error: no test specified\" && exit 0",
     "watch": "tsc -p . --watch",
@@ -21,6 +22,7 @@
   "author": "bung87",
   "license": "MIT",
   "devDependencies": {
+    "@tsconfig/node12": "^1.0.7",
     "@types/command-exists": "^1.2.0",
     "@types/inquirer": "^7.3.1",
     "@types/inquirer-npm-name": "^3.0.1",
