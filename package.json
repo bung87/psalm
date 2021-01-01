@@ -10,9 +10,7 @@
   "scripts": {
     "ts": "node -r esm -r esbuild-register",
     "plop": "plop --plopfile lib/plopfile.js",
-    "buildMain": "./node_modules/.bin/esbuild src/index.ts --platform=node --outfile=lib/index.js",
-    "buildPlop": "./node_modules/.bin/esbuild src/plopfile.ts --platform=node --outfile=lib/plopfile.js",
-    "build": "yarpm run buildMain &&yarpm run buildPlop",
+    "build": "tsc -p .",
     "prepublishOnly": "yarpm run pretty && yarpm run build",
     "test": "echo \"Error: no test specified\" && exit 0",
     "watch": "tsc -p . --watch",
