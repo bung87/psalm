@@ -9,6 +9,9 @@
     "lib/**"
   ],
   "scripts": {
+    "syncgi": "git clone --depth=1 https://github.com/toptal/gitignore",
+    "upgi":"cd gitignore && git fetch && git reset --hard ",
+    "packgi": "zip src/gitignore.zip -r gitignore/templates",
     "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
     "plop": "plop --plopfile lib/plopfile.js",
@@ -43,6 +46,7 @@
     "command-exists": "^1.2.9",
     "inquirer": "^7.3.3",
     "inquirer-npm-name": "^3.0.0",
+    "jszip": "^3.5.0",
     "memfs": "^3.2.0",
     "minimist": "^1.2.5",
     "npm-name": "^6.0.1",
