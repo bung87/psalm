@@ -8,6 +8,7 @@
     "lib/**"
   ],
   "scripts": {
+    "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
     "plop": "plop --plopfile lib/plopfile.js",
     "build": "tsc -p .",
@@ -40,6 +41,7 @@
     "command-exists": "^1.2.9",
     "inquirer": "^7.3.3",
     "inquirer-npm-name": "^3.0.0",
+    "memfs": "^3.2.0",
     "minimist": "^1.2.5",
     "npm-name": "^6.0.1",
     "plop": "^2.7.4",
