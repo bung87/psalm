@@ -16,7 +16,7 @@
     "prepublishOnly": "yarpm run pretty && yarpm run build",
     "test": "echo \"Error: no test specified\" && exit 0",
     "watch": "tsc -p . --watch",
-    "pretty": "yarpm run prettier --write ."
+    "pretty": "yarpm run prettier --write --print-width 120 ."
   },
   "author": "bung87",
   "license": "MIT",
