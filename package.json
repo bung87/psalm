@@ -14,7 +14,7 @@
     "packgi": "zip src/gitignore.zip -r gitignore/templates",
     "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
-    "plop": "plop --plopfile lib/plopfile.js",
+    "plop": "plop --plopfile lib/cjs/plopfile.js --cwd lib ",
     "build": "tsc -p tsconfig.json && tsc -p esmconfig.json",
     "prepublishOnly": "yarpm run pretty && yarpm run build",
     "test": "echo \"Error: no test specified\" && exit 0",
@@ -55,6 +55,7 @@
     "memfs": "^3.2.0",
     "minimist": "^1.2.5",
     "npm-name": "^6.0.1",
+    "object-to-spawn-args": "^2.0.0",
     "plop": "^2.7.4",
     "semver": "^7.3.4",
     "validate-npm-package-name": "^3.0.0"

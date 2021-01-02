@@ -4,9 +4,9 @@ import Base from "inquirer/lib/prompts/base";
 
 inquirer.registerPrompt("search-list", require("inquirer-search-list"))
 
-const licenseList = Array.from(require("@ovyerus/licenses/simple")).sort()
+const typeList = ['javascript','typescript']
 
-class AskLicense extends Base {
+class AskLanguage extends Base {
   message?: string | Promise<string> | ((answers: inquirer.Answers) => string | Promise<string>) | undefined;
   constructor(question: inquirer.Question, readLine: ReadLineInterface, answers: inquirer.Answers) {
     super(question, readLine, answers);
@@ -18,9 +18,9 @@ class AskLicense extends Base {
     const options = Object.assign(rest,{
       // @ts-ignore
       type: "search-list",
-      message: this.message  || "Select License",
-      choices: licenseList,
-      default: "MIT"
+      message: this.message  || "Select language",
+      choices: typeList,
+      default: "javascript"
     })
     // @ts-ignore
     inquirer.prompt(options).then( e => callback(e[this.opt.name as string]));
@@ -28,4 +28,4 @@ class AskLicense extends Base {
   };
 }
 
-export default AskLicense;
+export default AskLanguage;

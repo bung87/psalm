@@ -14,6 +14,9 @@ class AskName extends Base {
   _run = (callback: (r: any) => void) => {
     // avoiding recusively prompt self type
     const {type,...rest} = this.opt
+    console.log(this.opt)
+    // TODO inquirer-npm-name only check name,npm-name support registryUrl in options
+    // which resolved by package registry-url parse (.npmrc file)
     askName(Object.assign(rest,{type:'input',default:path.basename(process.cwd())}), inquirer).then( e => callback(e[this.opt.name as string]));
     return this;
   };
