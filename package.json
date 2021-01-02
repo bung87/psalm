@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "syncgi": "git clone --depth=1 https://github.com/toptal/gitignore",
-    "upgi":"cd gitignore && git fetch && git reset --hard ",
+    "upgi": "cd gitignore && git fetch && git reset --hard ",
     "packgi": "zip src/gitignore.zip -r gitignore/templates",
     "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
@@ -30,6 +30,7 @@
     "@types/inquirer": "^7.3.1",
     "@types/inquirer-npm-name": "^3.0.1",
     "@types/minimist": "^1.2.1",
+    "@types/semver": "^7.3.4",
     "@types/validate-npm-package-name": "^3.0.2",
     "esbuild": "^0.8.28",
     "esbuild-register": "^1.1.1",
@@ -43,14 +44,19 @@
     "registry": "https://registry.npmjs.com"
   },
   "dependencies": {
+    "@ovyerus/licenses": "^6.4.4",
     "command-exists": "^1.2.9",
+    "git-user-name": "^2.0.0",
     "inquirer": "^7.3.3",
     "inquirer-npm-name": "^3.0.0",
+    "inquirer-search-list": "^1.2.6",
     "jszip": "^3.5.0",
+    "license": "^1.0.3",
     "memfs": "^3.2.0",
     "minimist": "^1.2.5",
     "npm-name": "^6.0.1",
     "plop": "^2.7.4",
+    "semver": "^7.3.4",
     "validate-npm-package-name": "^3.0.0"
   },
   "husky": {
