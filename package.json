@@ -4,18 +4,20 @@
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
-  "bin": "lib/cjs/index.js",
+  "bin": "lib/cjs/cli.js",
+  "types": "lib/cjs/index.d.ts",
   "files": [
     "lib/**"
   ],
   "scripts": {
+    "clean": "rimraf lib types",
     "syncgi": "git clone --depth=1 https://github.com/toptal/gitignore",
     "upgi": "cd gitignore && git fetch && git reset --hard ",
-    "packgi": "zip src/gitignore.zip -r gitignore/templates",
+    "packgi": "zip ./gitignore.zip -r gitignore/templates && cp ./gitignore.zip ./lib",
     "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
     "plop": "plop --plopfile lib/cjs/plopfile.js --cwd lib ",
-    "build": "tsc -p tsconfig.json && tsc -p esmconfig.json",
+    "build": "tsc -p tsconfig.json && tsc -p esmconfig.json && cp ./gitignore.zip ./lib",
     "prepublishOnly": "yarpm run pretty && yarpm run build",
     "test": "echo \"Error: no test specified\" && exit 0",
     "watch": "tsc -p . --watch",
@@ -37,6 +39,7 @@
     "esm": "^3.2.25",
     "husky": "^4.3.6",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "yarpm": "^0.2.1"
   },
   "publishConfig": {

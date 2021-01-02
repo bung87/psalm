@@ -3,7 +3,7 @@ import fs from "fs";
 import path from 'path'
 
 const new_zip = new JSZip();
-const p = path.join(__dirname, 'gitignore.zip')
+const p = path.join(__dirname, '..','gitignore.zip')
 const data = fs.readFileSync(p)
 
 export async function gitignore(q:string) {
