@@ -39,23 +39,18 @@ export default function (plop: NodePlopAPI) {
     partials: false,
     actionTypes: true,
   };
-  // @ts-ignore
-  plop.load(require.resolve("./actions/license_file"), {} as PlopCfg, include);
-  // @ts-ignore
-  plop.load(require.resolve("./actions/package_json"), {} as PlopCfg, include);
-  // @ts-ignore
-  plop.load(require.resolve("./actions/readme_file"), {} as PlopCfg, include);
-  // @ts-ignore
-  plop.load(require.resolve("./actions/gitignore_file"), {} as PlopCfg, include);
-  // @ts-ignore
-  plop.load(require.resolve("./badges"), {} as PlopCfg, {partials:true});
+  plop.load(require.resolve("./actions/license_file"), {}, include);
+  plop.load(require.resolve("./actions/package_json"), {}, include);
+  plop.load(require.resolve("./actions/readme_file"), {}, include);
+  plop.load(require.resolve("./actions/gitignore_file"), {}, include);
+  plop.load(require.resolve("./badges"), null, { partials: true });
 
-  plop.setPrompt("askName", AskName as any);
-  plop.setPrompt("askLicense", AskLicense as any)
-  plop.setPrompt("askVersion", AskVersion as any)
-  plop.setPrompt("AskAuthor", AskAuthor as any)
-  plop.setPrompt("AskProjectType", AskProjectType as any)
-  plop.setPrompt("AskLanguage", AskLanguage as any)
+  plop.setPrompt("askName", AskName);
+  plop.setPrompt("askLicense", AskLicense)
+  plop.setPrompt("askVersion", AskVersion)
+  plop.setPrompt("AskAuthor", AskAuthor)
+  plop.setPrompt("AskProjectType", AskProjectType)
+  plop.setPrompt("AskLanguage", AskLanguage)
   // name,version,description,entry point,test command,git repository,keywords,author,license,About to write to /Users/bung/js_works/aaa/package.json: Is this OK? (yes) 
   plop.setGenerator("node", {
     description: "node module",
