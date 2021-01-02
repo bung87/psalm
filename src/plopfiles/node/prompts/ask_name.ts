@@ -11,14 +11,18 @@ class AskName extends Base {
   constructor(question: inquirer.Question, readLine: ReadLineInterface, answers: inquirer.Answers) {
     super(question, readLine, answers);
   }
-  _run = (callback: (r: any) => void) => {
+  run =  async ()  =>  {
     // avoiding recusively prompt self type
-    const {type,...rest} = this.opt
-    console.log(this.opt)
+    const {type,when,...rest} = this.opt
+    // let shouldRun = typeof this.opt.when ==='function' ?  this.opt.when(this.answers) :await Promise.resolve(this.opt.when)
+    // console.log(shouldRun)
+    // if(!shouldRun){
+    //   return ''
+    // }
     // TODO inquirer-npm-name only check name,npm-name support registryUrl in options
     // which resolved by package registry-url parse (.npmrc file)
-    askName(Object.assign(rest,{type:'input',default:path.basename(process.cwd())}), inquirer).then( e => callback(e[this.opt.name as string]));
-    return this;
+    const options = Object.assign(rest,{type:'input',default:path.basename(process.cwd())})
+    return  await askName(options, inquirer)
   };
 }
 

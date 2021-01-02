@@ -12,6 +12,7 @@ import AskProjectType from './prompts/ask_project_type'
 import AskLanguage from './prompts/ask_language'
 import { fs as memfs, vol, Volume } from 'memfs';
 import { parseSync } from "../../tree";
+import validatePackageName from 'validate-npm-package-name'
 
 const DirStruct = `
 .
@@ -56,6 +57,13 @@ export default function (plop: NodePlopAPI) {
     description: "node module",
     prompts: [
       {
+        type: "list",
+        name: "sourceType",
+        choices: ['public', 'private'],
+        default: 'public',
+        message: "Public or private project"
+      },
+      {
         type: "AskProjectType",
         name: "projectType",
       },
@@ -66,7 +74,15 @@ export default function (plop: NodePlopAPI) {
       {
         type: "askName",
         name: "name",
-        message: "Project name"
+        message: "Project name",
+        when: (e) => e.sourceType === 'public'
+      },
+      {
+        type: "input",
+        name: "name",
+        message: "Project name(private)",
+        validate: (e) => Boolean(validatePackageName(e.name)),
+        when: (e) => e.sourceType === 'private'
       },
       {
         type: "askVersion",

@@ -17,7 +17,7 @@
     "tree": "tree -F -a --noreport ",
     "ts": "node -r esm -r esbuild-register",
     "plop": "plop --plopfile lib/cjs/plopfile.js --cwd lib ",
-    "build": "tsc -p tsconfig.json && tsc -p esmconfig.json && cp ./gitignore.zip ./lib",
+    "build": "tsc -p tsconfig.json && tsc -p esmconfig.json && cp ./gitignore.zip ./lib && cp -r ./src/templates ./lib/cjs && cp -r ./src/templates ./lib/esm",
     "prepublishOnly": "yarpm run pretty && yarpm run build",
     "test": "echo \"Error: no test specified\" && exit 0",
     "watch": "tsc -p . --watch",
