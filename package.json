@@ -61,6 +61,7 @@
     "object-to-spawn-args": "^2.0.0",
     "plop": "^2.7.4",
     "semver": "^7.3.4",
+    "upper-case-first": "^2.0.2",
     "validate-npm-package-name": "^3.0.0"
   },
   "husky": {

@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 import { Interface as ReadLineInterface } from "readline";
 import Base from "inquirer/lib/prompts/base";
-import askName from "inquirer-npm-name";
+import askName from "./inquirer-npm-name";
 import path from 'path'
 
 /**
@@ -22,7 +22,7 @@ class AskName extends Base {
     // TODO inquirer-npm-name only check name,npm-name support registryUrl in options
     // which resolved by package registry-url parse (.npmrc file)
     const options = Object.assign(rest,{type:'input',default:path.basename(process.cwd())})
-    return  await askName(options, inquirer)
+    return  await askName(options as {name:string}, inquirer)
   };
 }
 
