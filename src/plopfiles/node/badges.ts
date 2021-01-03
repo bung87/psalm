@@ -6,5 +6,5 @@ export default function (plop: NodePlopAPI) {
   );
   plop.setPartial("npmDownloads", "![npm: total downloads](https://badgen.net/npm/dt/{{pkgName}})");
   plop.setPartial("types", "![Types](https://badgen.net/npm/types/{{pkgName}})");
-  plop.setPartial("deps", "![Dep](https://badgen.net/david/dep/{{username}}/{{repo}})");
+  plop.setPartial("deps", "![Dep](https://badgen.net/david/dep/{{githubUser}}/{{repo}})");
 }

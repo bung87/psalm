@@ -1,9 +1,9 @@
 import inquirer from "inquirer";
 import { Interface as ReadLineInterface } from "readline";
 import Base from "inquirer/lib/prompts/base";
-import userName from 'git-user-name';
+import path from 'path'
 
-class AskAuthor extends Base {
+class AskRepo extends Base {
   constructor(question: inquirer.Question, readLine: ReadLineInterface, answers: inquirer.Answers) {
     super(question, readLine, answers);
   }
@@ -11,9 +11,9 @@ class AskAuthor extends Base {
     // avoiding recusively prompt self type
     const {type,...rest} = this.opt
     // @ts-ignore
-    inquirer.prompt(Object.assign(rest,{type:'input',default:userName()})).then( e => callback(e[this.opt.name as string]));
+    inquirer.prompt(Object.assign(rest,{type:'input',default:path.basename(process.cwd())})).then( e => callback(e[this.opt.name as string]));
     return this;
   };
 }
 
-export default AskAuthor;
+export default AskRepo;

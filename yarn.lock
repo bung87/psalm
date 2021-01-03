@@ -99,6 +99,11 @@
   resolved "https://r.cnpmjs.org/@types/fined/download/@types/fined-1.1.2.tgz#05d2b9f93d144855c97c18c9675f424ed01400c4"
   integrity sha1-BdK5+T0USFXJfBjJZ19CTtAUAMQ=
 
+"@types/git-user-name@^2.0.0":
+  version "2.0.0"
+  resolved "https://r.cnpmjs.org/@types/git-user-name/download/@types/git-user-name-2.0.0.tgz#8b178e0a43c29e547f4a13a10ce32386a8bec4c8"
+  integrity sha1-ixeOCkPCnlR/ShOhDOMjhqi+xMg=
+
 "@types/glob@^7.1.1":
   version "7.1.3"
   resolved "https://r.cnpmjs.org/@types/glob/download/@types/glob-7.1.3.tgz#e6ba80f36b7daad2c685acd9266382e68985c183"
@@ -1082,6 +1087,13 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://r.cnpmjs.org/get-value/download/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
+gh-got@^9.0.0:
+  version "9.0.0"
+  resolved "https://r.cnpmjs.org/gh-got/download/gh-got-9.0.0.tgz#5f82eb5c97aa7a0235f50cf277331cdeda879670"
+  integrity sha1-X4LrXJeqegI19QzydzMc3tqHlnA=
+  dependencies:
+    got "^10.5.7"
+
 git-config-path@^1.0.1:
   version "1.0.1"
   resolved "https://r.cnpmjs.org/git-config-path/download/git-config-path-1.0.1.tgz#6d33f7ed63db0d0e118131503bab3aca47d54664"
@@ -1158,7 +1170,7 @@ globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-got@^10.6.0:
+got@^10.5.7, got@^10.6.0:
   version "10.7.0"
   resolved "https://r.cnpmjs.org/got/download/got-10.7.0.tgz#62889dbcd6cca32cd6a154cc2d0c6895121d091f"
   integrity sha1-YoidvNbMoyzWoVTMLQxolRIdCR8=

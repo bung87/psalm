@@ -10,6 +10,7 @@ import AskVersion from './prompts/ask_version'
 import AskAuthor from './prompts/ask_author'
 import AskProjectType from './prompts/ask_project_type'
 import AskLanguage from './prompts/ask_language'
+import AskGithubUser from './prompts/ask_github_user'
 import { fs as memfs, vol, Volume } from 'memfs';
 import { parseSync } from "../../tree";
 import validatePackageName from 'validate-npm-package-name'
@@ -52,6 +53,7 @@ export default function (plop: NodePlopAPI) {
   plop.setPrompt("AskAuthor", AskAuthor)
   plop.setPrompt("AskProjectType", AskProjectType)
   plop.setPrompt("AskLanguage", AskLanguage)
+  plop.setPrompt("AskGithubUser",AskGithubUser)
   // name,version,description,entry point,test command,git repository,keywords,author,license,About to write to /Users/bung/js_works/aaa/package.json: Is this OK? (yes) 
   plop.setGenerator("node", {
     description: "node module",
@@ -96,6 +98,14 @@ export default function (plop: NodePlopAPI) {
         type: "AskAuthor",
         name: "author",
       },
+      {
+        type:"AskGithubUser",
+        name: "githubUser"
+      },
+      {
+        type:"AskRepo",
+        name: "repo"
+      }
     ],
     // @ts-ignore
     actions: [
