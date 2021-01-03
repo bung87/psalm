@@ -10,7 +10,7 @@
     "lib/**"
   ],
   "scripts": {
-    "clean": "rimraf lib types",
+    "clean": "rimraf lib",
     "syncgi": "git clone --depth=1 https://github.com/toptal/gitignore",
     "upgi": "cd gitignore && git fetch && git reset --hard ",
     "packgi": "zip ./gitignore.zip -r gitignore/templates && cp ./gitignore.zip ./lib",
@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 0",
     "watch": "tsc -p . --watch",
     "check": "tsc --noEmit -p .",
-    "pretty": "yarpm run prettier --write --print-width 120 ."
+    "pretty": "prettier --ignore-path .gitignore --write \"src/**/*.{ts,js}\""
   },
   "author": "bung87",
   "license": "MIT",
@@ -68,7 +68,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarpm run test"
+      "pre-commit": "yarpm run pretty && yarpm run test"
     }
   }
 }

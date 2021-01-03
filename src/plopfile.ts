@@ -1,4 +1,4 @@
-import { NodePlopAPI } from "plop";
+import { NodePlopAPI } from 'plop';
 
 export default function (plop: NodePlopAPI) {
   const include = {
@@ -8,5 +8,5 @@ export default function (plop: NodePlopAPI) {
     actionTypes: false,
   };
   // @ts-ignore
-  plop.load(require.resolve("./plopfiles/node"), {}, include);
+  plop.load(require.resolve('./plopfiles/node'), {}, include);
 }

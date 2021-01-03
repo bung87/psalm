@@ -1,10 +1,10 @@
-import inquirer from "inquirer";
-import { Interface as ReadLineInterface } from "readline";
-import Base from "inquirer/lib/prompts/base";
+import inquirer from 'inquirer';
+import { Interface as ReadLineInterface } from 'readline';
+import Base from 'inquirer/lib/prompts/base';
 
-inquirer.registerPrompt("search-list", require("inquirer-search-list"))
+inquirer.registerPrompt('search-list', require('inquirer-search-list'));
 
-const typeList = ['lib','app','cli']
+const typeList = ['lib', 'app', 'cli'];
 
 class AskProjectType extends Base {
   message?: string | Promise<string> | ((answers: inquirer.Answers) => string | Promise<string>) | undefined;
@@ -14,16 +14,16 @@ class AskProjectType extends Base {
   }
   _run = (callback: (r: any) => void) => {
     // avoiding recusively prompt self type
-    const {type,...rest} = this.opt
-    const options = Object.assign(rest,{
+    const { type, ...rest } = this.opt;
+    const options = Object.assign(rest, {
       // @ts-ignore
-      type: "search-list",
-      message: this.message  || "Select Project type",
+      type: 'search-list',
+      message: this.message || 'Select Project type',
       choices: typeList,
-      default: "lib"
-    })
+      default: 'lib',
+    });
     // @ts-ignore
-    inquirer.prompt(options).then( e => callback(e[this.opt.name as string]));
+    inquirer.prompt(options).then((e) => callback(e[this.opt.name as string]));
     return this;
   };
 }

@@ -4,7 +4,7 @@
     "target": "ES2015",
     "module": "ES2020",
     "strict": true,
-    "declaration": false,  
+    "declaration": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

@@ -1,9 +1,9 @@
-# {{ projectName }} {{> npmVersion }} {{> npmDownloads }} {{> types }} {{> deps }}  
+# {{ projectName }} {{> npmVersion }} {{> npmDownloads }} {{> types }} {{> deps }}
 
 ## Installation
 
-`yarn add {{ projectName }}`  
+`yarn add {{ projectName }}`
 
-or  
+or
 
-`npm i --save {{ projectName }}`  
+`npm i --save {{ projectName }}`
