@@ -88,18 +88,18 @@ if (require && require.main === module) {
   });
 
   const data2 = `
-  src/templates/node
-  ├── src/templates/node/.editorconfig
-  ├── src/templates/node/.gitignore
-  ├── src/templates/node/.travis.yml
-  ├── src/templates/node/LICENSE
-  ├── src/templates/node/README.md
-  ├── src/templates/node/lib/
-  │   └── src/templates/node/lib/index.js
-  ├── src/templates/node/package.json
-  ├── src/templates/node/src/
-  │   └── src/templates/node/src/index.ts
-  └── src/templates/node/tsconfig.json
+  .
+  ├── ./.editorconfig
+  ├── ./.gitignore
+  ├── ./.travis.yml
+  ├── ./LICENSE
+  ├── ./README.md
+  ├── ./lib/
+  │   └── ./lib/index.js
+  ├── ./package.json
+  ├── ./src/
+  │   └── ./src/index.ts
+  └── ./tsconfig.json
 `;
   console.log(parseSync(data2));
 }

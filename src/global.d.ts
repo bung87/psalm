@@ -1,6 +1,6 @@
 import { NodePlopAPI, PlopCfg } from 'plop';
 import Base from 'inquirer/lib/prompts/base';
-import inquirer, { Question, Prompt } from 'inquirer';
+import inquirer, { Question, PromptConstructor } from 'inquirer';
 type IncludeDefinition =
   | boolean
   | string[]
@@ -12,7 +12,7 @@ type IncludeDefinition =
     };
 declare module 'plop' {
   interface NodePlopAPI {
-    setPrompt<T extends Base, Q extends Question>(name: string, prompt: T<Q>): void;
+    setPrompt(name: string, prompt: inquirer.prompts.PromptConstructor): void;
     load(target: string[] | string, loadCfg: Partial<PlopCfg> | null, includeOverride: IncludeDefinition): void;
   }
 }

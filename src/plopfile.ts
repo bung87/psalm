@@ -7,6 +7,5 @@ export default function (plop: NodePlopAPI) {
     partials: false,
     actionTypes: false,
   };
-  // @ts-ignore
   plop.load(require.resolve('./plopfiles/node'), {}, include);
 }
