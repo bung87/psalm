@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import inquirer, { Answers, InputQuestion } from 'inquirer';
 import { Interface as ReadLineInterface } from 'readline';
 import Base from 'inquirer/lib/prompts/base';
 import { valid } from 'semver';
@@ -12,7 +12,7 @@ class AskVersion extends Base {
     const { type, ...rest } = this.opt;
     // @ts-ignore
     inquirer
-      .prompt(Object.assign(rest, { type: 'input', default: '0.0.1', validate: (e: string) => Boolean(valid(e)) }))
+      .prompt(Object.assign(rest, { type: 'input', default: '0.0.1', validate: (e: string) => Boolean(valid(e)) }) as InputQuestion<Answers>)
       .then((e) => callback(e[this.opt.name as string]));
     return this;
   };
